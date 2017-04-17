@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<title>Treasuregram</title>
+	</head>
+	<body>
+<!-- Repeated Code for Navbar -->
+	
+		{% block content %}
+			<div class = "row">
+			{%	for treasure in treasures %}
+				<div class = "col-md-4">
+					<a href="/{{treasure.id}}/">
+					<div class = "treasure panel panel-default">
+
+				
+						<div class = "panel-heading">
+							<h2 class = "panel-title"> {{treasure.name}}</h2>
+						</div>
+
+						<div class="panel-body">
+							<div class="treasure-photo">
+								<img style = "max-height: 100px" src="{{treasure.image.url }}">				
+							</div>
+						</div>			
+					</div>
+					</a>
+				</div>
+				{% if forloop.counter|divisibleby:3 %}
+					</div><div class = "row">
+				{% endif %}
+				{% endfor %}
+			</div>	
+			<div class="treasure-panel panel-default">
+				<div class="panel-heading">
+					<h3 class ="panel-title">Add Treasure </h3>
+				</div>
+				<div class = "panel-body">
+					<form enctype ="multipart/form-data" action="post_url/" method = "post">
+						{% csrf_token %}
+						{{ form.as_p }}
+						<input type="submit" value="Submit" />
+					</form>	
+				</div>	
+			</div>
+			
+			{% endblock %}
+
+		</main>
+	</body>
+</html>
+

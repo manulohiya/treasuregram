@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<title>Treasuregram</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top text-center">
+		<a href="/">
+			<img style = "max-height: 100px" src="{% static 'images/logo.png' %}" alt = "Treasuregram">
+			<h1>Treasuregram</h1>
+		</a> 
+		</nav>
+<!-- Repeated code for Navbar -->
+		<main class="container container--mw700">
+			{% block content %}
+			{% endblock %}
+		</main>

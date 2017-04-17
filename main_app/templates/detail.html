@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Details</title>
+</head>
+<body>
+	<main class="container container--mw700" role = "main">			
+	{% block content %}	
+		<div class = "treasure panel panel-default">				
+			<div class = "panel-heading">
+				<h2 class = "panel-title"> {{treasure.name}}</h2>
+			</div>
+
+			<div class="panel-body">
+				<div class="treasure-photo-detail">
+					<img style = "max-height: 200px" src="{{treasure.image.url }}">	
+				</div>
+			
+				<table class = "treasure-table">
+					<tr>
+						<th>
+							
+							Material:
+						</th>
+						<td>{{ treasure.material }} </td>
+					</tr>
+					<tr>
+						<th>
+							
+							Value:
+						</th>
+						<td>{{ treasure.value }} </td>
+					</tr>
+					<tr>
+						<th>
+							
+							Location:
+						</th>
+						<td>{{ treasure.location }} </td>
+					</tr>
+				</table>
+			</div>	
+		</div>				
+	{% endblock %}
+	</main>	
+</body>
+</html>
